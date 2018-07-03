@@ -47,3 +47,61 @@ const MathLibrary = {
 
 MathLibrary.calculateProduct(5,5);
 
+
+// Manay, Many Arguments
+// Refactor the following function to use the rest operator. Remember, an argument using the rest operator, does *not* need o be called 'rest'
+/*
+function product(a, b, c, d, e) {
+  var numbers = [a,b,c,d,e];
+  
+  return numbers.reduce(function(acc, number) {
+    return acc * number;
+  }, 1)
+}
+*/
+
+
+// Refactoring
+
+function product(...rest) {
+    var numbers = [...rest];
+    
+    return numbers.reduce(function(acc, number) {
+      return acc * number;
+    }, 1)
+  }
+
+
+
+
+//Spredin' Arrays
+// Refactor the following the spread operator
+/*
+function join(array1, array2) {
+  return array1.concat(array2);
+}
+*/
+
+// Refactoring
+function join(...array) {
+  return array[0].concat(array[1]);
+}
+
+
+join('hola','julio');
+
+
+// Mixing Rest and Spread
+// Refactor the following to use the only the rest operator:
+
+/*
+function unshift(array, a, b, c, d, e) {
+  return [a, b, c, d, e].concat(array);
+}
+*/
+
+function unshift(array, ...rest) {
+  return [...rest].concat(array);
+}
+
+unshift(['julio','cesar'], 1,2,4,5,'a');
